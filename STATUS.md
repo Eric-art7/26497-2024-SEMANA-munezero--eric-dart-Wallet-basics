@@ -1,1 +1,2 @@
-03:00 AM check-in
+03:00 pm check-in "faild at right time"
+06:25 pm 
