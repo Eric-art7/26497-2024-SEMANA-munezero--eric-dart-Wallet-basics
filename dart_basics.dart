@@ -18,20 +18,20 @@ while (i < text.length){
  return count;
 }
 
-String initials(String fullName){
-  //this function takes a full name as input and returns the initials of the name in uppercase letters, separated by periods. it trims any leading or trailing wihitespace from the input string and checks if the trimmed string is empty.if it is empty, the function returns an empty string.other wise, it splits the trimmed string into a list of words and iterates through each word to extract thefirst letter, converts it to uppercase, and appends it to the result string with a period. finally, the functiion returns the result string containing the initials of the name.
+String initials(String fullName) {
+  // this function takes a full name and  returns the initials of the name in uppercase and separated by a dot.
   String strimmed = fullName.trim();
-  if (strimmed.isEmpty){
+  if (strimmed.isEmpty) {
     return '';
   }
-  List<String> words =  strimmed.split('');
+  List<String> words = strimmed.split(' '); 
   String result = '';
   int i = 0;
-  while (i < words.length){
+  while (i < words.length) {
     String word = words[i];
-    if (word.isEmpty){
+    if (word.isNotEmpty) { 
       String firstletter = word[0].toUpperCase();
-      result  = '$result$firstletter.';
+      result = '$result$firstletter.';
     }
     i++;
   }
@@ -40,17 +40,94 @@ String initials(String fullName){
 
 
 
+void drawTriangle(int height) {
+  // this function drow a triangle of stars and # where * is for odd rows and # is for even rows where start from left to right.
+  if (height <= 0) return;
+
+  int row = 1;
+  while (row <= height) {
+    String line = '';
+    int space = 1;
+    while (space <= height - row) {
+      line += ' ';
+      space++;
+    }
+    int column = 1;
+    while (column <= row) {
+      if (row % 2 == 1) {
+        line += '*';
+      } else {
+        line += '#';
+      }
+      column++;
+    }
+    print(line);
+    row++;
+  }
+}
+
+int momoFee(int amount){
+  // traff function .
+  if (amount <= 0){
+    return -1;
+  }else if (amount <= 1000){
+    return 20;
+  }else if (amount <= 10000 && amount > 1000){
+    return 100;
+  }else if (amount <= 150000 && amount > 10000){
+    return 250;
+  }else {
+    return 1500;
+  }
+}
+
+String maskPhone(String phone) {
+   // function masks a phone number.
+  if (phone.length != 10) {
+    return 'INVALID';
+  }
+  String firstThree = phone.substring(0, 3);
+  String lastTwo = phone.substring(8, 10);
+  String stars = '';
+  int i = 0;
+  while (i < 5) {
+    stars += '*';
+    i++;
+  }
+  return '$firstThree$stars$lastTwo';
+}
 
 
 
 
 void main() {
   // this is main function that calls the functions and print.
+  print('Reg no: $regNo | D = $d | T = $t');
+
   String fullName = 'semana munezero eric';
   int vowelCount = countVowels(fullName);
   print('$fullName has $vowelCount vowels');
 
   print(initials('semana munezero eric'));
+
+  drawTriangle(10);
+  drawTriangle(0);
+  drawTriangle(-2);
+
+
+
+  int i = 1;
+  int totalFees = 0;
+  String masked = maskPhone('0788123456');
+  while (i <= 10) {
+    int amount = i * 4000 + 97 * 100;
+    int fee = momoFee(amount);
+    totalFees += fee;
+    print('Receipt $i | $amount RWF | fee $fee RWF | to $masked');
+    i++;
+  }
+  print('Total fees: $totalFees RWF');
+
 
 
 }

@@ -163,3 +163,168 @@ oeo
 3
 0
 ----------------------------------------------------------------------------------------------------------------------------------------------------
+C5, 
+Subtract row from height (height - row) because each line is height characters wide and ends with row symbols.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------
+PART D:
+D1 ,
+int count = 1;// variable count declared with assigned value which is one .
+void bump() { // this line shows function name and its return type , name = bump and return = void.
+int count = 10;//  variable count declared with space of the function with assigned value which is 10.
+count++;// this is increamental of the variable count in the function bump.
+}
+void doubleIt(int value) {// this line shows function name with argument or pramate and its return type , name = doubleIt and return = void.
+value = value * 2;//  this assigned new value due to multiplication by 2 to value an argument.
+}
+int addVat(int price, {int rate = 18}) => price + price * rate ~/ 100; // method with diffrent pramates and opeartion with return type which is int.
+void main() {// main function to use for call other methods 
+bump();// function call for bump function.
+print(count); // printing or desplaying result for count.
+int v = 5;// variable declared with assigned value which is 5.
+doubleIt(v);// function call for doubleIt function
+print(v);// printing value of v .
+print(addVat(1000));// printing result from function addVat
+print(addVat(999));// printing result from function addVat
+print(addVat(1000, rate: 0));// printing result from function addVat
+}
+THE output will be 
+1
+5
+1180
+1178
+1000
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+D2,  
+First receipt in the 250 RWF band: Receipt 1 was the first to move into the 250 RWF band because its initial amount (13,700 RWF)
+already exceeded the 10,000 RWF upper limit of the 100 RWF band.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+PARTE 
+     FALSE ONE:
+
+String grade(int mark) {
+if (mark >= 50) {
+return 'C';
+} else if (mark >= 70) {
+return 'B';
+} else if (mark >= 80) {
+return 'A';
+}
+return 'F';
+}
+bool isPalindrome(String word) {
+int i = 0;
+while (i < word.length) {
+if (word[i] != word[word.length - i]) return false;
+i++;
+}
+return true;
+} 
+  CORRECT ONE
+  1. C becouse grades 85 above 50 and we go from top to bottom .
+  2.RangeError (index): Invalid value: Not in inclusive range 0..4: 5, because On the very first iteration (i = 0), word[word.length - i]
+    tries to access index 5 - 0 = 5, which is out of bounds for a 5-character string whose valid indices are 0 through 4.
+  3. 
+  String grade(int mark) {
+  if (mark >= 80) {
+    return 'A';
+  } else if (mark >= 70) {
+    return 'B';
+  } else if (mark >= 50) {
+    return 'C';
+  }
+  return 'F';
+}
+
+bool isPalindrome(String word) {
+  String clean = word.toLowerCase();
+  int i = 0;
+  while (i < clean.length) {
+    if (clean[i] != clean[clean.length - 1 - i]) return false;
+    i++;
+  }
+  return true;
+}
+Choice: true
+Justification: In everyday usage, a palindrome depends on the sequence of letters in a word rather than whether the first letter is capitalized
+at the start of a sentence. Converting the string to lowercase (word.toLowerCase()) before comparing characters ensures that 'Level' 
+is recognized as the same word backward and forward without rejecting valid capitalized inputs.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PARTF:
+Reg no: 264972024 | D = 4 | T = 24
+12345 -> false
+77777 -> false
+4821 -> false
+48a21 -> false
+48214 -> true
+Starting balance: 32,000 RWF
+Sent 15,000 RWF (fee 250 RWF). New balance: 16,750 RWF
+Sent 15,000 RWF (fee 250 RWF). New balance: 1,500 RWF
+Failed: insufficient balance
+Bought 1,000 RWF airtime. New balance: 500 RWF
+Failed: invalid amount
+Failed: insufficient balance
+Final balance: 500 RWF
+0 RWF
+-5,000 RWF
+1,000,000 RWF
+true
+false
+false
+
+The third transfer of 15,000 RWF surprised me because the starting balance of 32,000 RWF looked large enough at first glance to cover two 15,000 RWF transfers 
+with money to spare, leaving 1,500 RWF after deducting the two 250 RWF fees. Because 1,500 RWF was less than the 15,250 RWF required for the third 
+transfer (amount plus fee), the third transfer failed with Failed: insufficient balance, yet the remaining 1,500 RWF was still enough to buy 1,000 RWF of
+ airtime (which has no fee) and leave a final balance of 500 RWF.
+  =============================================================================================================================================================================
+PARTG 
+
+1. Three Errors / Wrong Outputs Encountered
+
+
+Error 1: initials() returning an empty string ('')
+
+• Exact Error / Wrong Output:
+'' (printed an empty line instead of S.M.E.)
+• Line It Came From:
+List<String> words = strimmed.split(''); and if (word.isEmpty) inside initials() (dart_basics.dart)
+• What Caused It:
+Calling .split('') without a space between the quotes split the name into individual letters instead of words, and checking if (word.isEmpty) only ran when a string had zero characters.
+• How I Fixed It:
+I changed .split('') to .split(' ') so it splits on spaces, and changed if (word.isEmpty) to if (word.isNotEmpty) so it skips extra spaces and extracts the first letter of each word.
+
+Error 2: drawTriangle() printing numbers on separate lines in an infinite loop
+
+• Exact Error / Wrong Output:
+6
+*
+5
+*
+4
+*
+• Line It Came From:
+int star = height--; print(star); print('*'); inside drawTriangle() (dart_basics.dart)
+• What Caused It:
+I decremented and printed height inside the loop, called print('*') on every single character instead of building one string per row, omitted leading spaces (height - row), and forgot to increment row++ and column++.
+• How I Fixed It:
+I built a String line = ''; for each row, added a while loop for height - row leading spaces before adding the * or # symbols, printed line once at the end of each row, and added space++, column++, and row++.
+
+Error 3: isPalindrome('level') crashing with a RangeError
+
+• Exact Error / Wrong Output:
+Unhandled exception: RangeError (index): Invalid value: Not in inclusive range 0..4: 5
+• Line It Came From:
+if (word[i] != word[word.length - i]) return false; inside isPalindrome() (Part E)
+• What Caused It:
+On the first iteration (i = 0), word.length - i evaluated to 5 - 0 = 5, which is out of bounds because Dart string indices run from 0 to length - 1 (0 to 4).
+• How I Fixed It:
+I converted the input to lowercase (String clean = word.toLowerCase();) and changed word[word.length - i] to clean[clean.length - 1 - i] so indexing starts at the last valid character (4) and moves backward safely.
+
+2. Reflection: Which Question Took the Longest, and Why?
+
+Part F (momo_sim.dart) took me the longest to complete because it required combining five separate functions (momoFee, formatRwf, isValidPin, sendMoney, and buyAirtime) while strictly 
+using while loops everywhere instead of for loops or external formatting libraries. Writing the logic in formatRwf to insert commas every three digits from right to left and testing edge cases—such as
+ negative amounts, invalid PINs, and balance checks that include transaction fees—took careful planning and debugging.
