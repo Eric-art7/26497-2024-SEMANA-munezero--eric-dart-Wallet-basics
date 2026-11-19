@@ -1,0 +1,52 @@
+PART A:
+A1 line by line predictions.
+
+// the following is the method or function have diffrent opartion on two values 
+void main() {
+// two line follow are variables stored the values assigned to them    
+int a = 17;
+int b = 5;
+
+// the following  output will be the 3.4, becouse this operator "/" always return  double datatype.
+print(a / b);
+
+// the following output will be the  3 , becouse this opartion "~/" will return intages only.
+print(a ~/ b);
+
+// the following output will be the  2 , becouse this "%" returns the remainder of devision in intage.
+print(a % b);
+
+// the following output will be the  3 , becouse we have ~a and "%" operator with devisor 5 which is postive  and becouse -17 sits 3 unit above -20 so remainder = 2.
+print(-a % b);
+
+// the following output will be the -3, becouse the we have negative number to devide postive number with this opartion"~/" which returns result in intage.
+print(-a ~/ b);
+
+//the following output will be the -17,becouse the dot "." grabs onto 17 first and  dart groups it as - (17.abs()) instead of (-).abs()
+print(-17.abs());
+
+// the following output will be flase , becouse it is comparation which give true or flase.
+print(0.1 + 0.2 == 0.3);
+
+// the following output will be true , becouse it is comparation which give true or flase
+print(10 == 10.0);
+}
+
+A2 line by line predictions.
+
+// the following is the method or function
+void main() {
+
+// two line follow are variables stored the values assigned to them  
+int x = 7; // your D
+int y = 97; // your T
+var z = x * 2 + y ~/ 4;
+
+// here output will be 45 , becouse it takes the value obtained from  "x * 2 + y ~/ 4;" and ad value of x whicj is 7.
+z += x;
+print(z);
+// the output will be flase, becouse it is isEven only have to behave true or flase  becouse z now is 45 that is reason.
+print(z.isEven);
+// the output will 457 as string becouse of the $ converted those value in z and x into string ang joins them together.
+print('$z' + '$x');
+}
