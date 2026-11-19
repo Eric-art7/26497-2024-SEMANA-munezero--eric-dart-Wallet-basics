@@ -31,7 +31,7 @@ print(0.1 + 0.2 == 0.3);
 // the following output will be true , becouse it is comparation which give true or flase
 print(10 == 10.0);
 }
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 A2 line by line predictions.
 
 // the following is the method or function
@@ -50,3 +50,116 @@ print(z.isEven);
 // the output will 457 as string becouse of the $ converted those value in z and x into string ang joins them together.
 print('$z' + '$x');
 }
+---------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ PART B:
+ B1 ,
+
+ void main() {
+String city = 'Kigali';  // variable stored string value
+print(city.length); // output = 6, becouse length function count the size or number of charactor are in string variable.
+print(city[city.length - 1]);// output = "i" ,becouse city.length-1 = 5 and this five is index of i in the variable of city.
+print(city.substring(2, 4));// output = "ga" ,becouse it extracts charactors from 2 up to 4.
+print(city.toUpperCase().indexOf('A')); output = 3 , becouse it converted Kigali to KIGALI and find or get the index number of "A" to printed.
+print(city.contains('k'));// output = flase , becouse it is checking lowcase while there is only upercase.
+print('$city.length');// output = Kigali.length , becouse this  length  outputed  as plain text.
+print('${city.length}');// output = 6 , becouse it count the length and after number size counted converted into String charactor "6"
+print(city * 2);//  output = Kigalikigaki, becouse it seams to double due to *2 which make the reapation of the string twice due to numberof times "2".
+city.toUpperCase();// converted string to UpperCase
+print(city);// output = Kigali , becouse that create new string coused existing one not changed.
+print(city.replaceAll('i', '!'));//output = k!gal! , becouse this replace the specified charactor with another specified.
+print('5' + 5.toString()); output = 55 , becouse that converted 5 to string and joins those two string which gives "55".
+print(int.parse('5') + 5);// output = 10 , becouse it converted string into intage and peform add opeartion which gives 10.
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+B2
+
+this is the line that if it removed their o way to count capital or low vowels and it the one make it happen 
+=>  "if (vowels.contains(text[i]))"
+The expression vowels.contains(text[i]) checks whether the current character in text is a vowel, 
+returning true if it is found in the vowels string and false otherwise.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+B3 
+Which input broke your first version: Inputs with leading,
+trailing, or multiple consecutive spaces between names (such as '  ana   uwase  ' or '   ') broke the first version.
+
+What you changed: 
+Originally, using fullName.split(' ') produced empty strings ('') for extra spaces,
+which caused a RangeError when trying to access index [0]. Adding .trim() to remove outer spaces, 
+checking if (cleaned.isEmpty) return '';, and splitting with a regular expression RegExp(r'\s+') instead of a single space ' ' grouped consecutive 
+spaces together and fixed the crash.
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+PART C:
+C1 ,
+void main() {
+for (int i = 0; i < 6; i++) {
+if (i == 2) continue;
+if (i == 4) break;
+print(i);
+}
+} 
+the output will be 
+0
+1
+3
+
+becouse on i == 0 continue key word tells as to jump go to the next and when i == 4 break key word stops the the loop.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+C2, 
+void main() {
+int day = 2;
+switch (day) {
+case 1:
+case 2:
+print('Early week');
+case 3:
+print('Midweek');
+default:
+print('Weekend soon');
+}
+} 
+the output will be 
+Early week
+becouse the switch get value stored in variable day which is 2 then operates the case 2 to print the string.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+C3 ,
+void main() {
+int? bonus;
+print(bonus ?? 50);
+bonus ??= 70;
+bonus ??= 90;
+print(bonus);
+int n = 10;
+do {
+print(n);
+n += 3;
+} while (n < 10);
+}
+the output will be 
+50
+70
+10
+becouse 
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+C4,
+void main() {
+int x = 7; // your D
+String result = '';
+while (x > 0) {
+if (x % 2 == 0) {
+result += 'E';
+} else {
+result += 'O';
+}
+x -= 3;
+}
+print(result);
+print(result.length);
+print(result.isEmpty ? 'nothing' : result[0]);
+}
+the output will be 
+oeo
+3
+0
+----------------------------------------------------------------------------------------------------------------------------------------------------
